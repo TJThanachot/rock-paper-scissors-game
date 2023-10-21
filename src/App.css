@@ -1,42 +1,119 @@
 #root {
-  max-width: 1280px;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.header {
+  border: 2px rgba(255, 255, 255, 0.4) solid;
+  border-radius: 1rem;
+  width: 50%;
+  height: 15%;
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    width: 90%;
   }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.score-container {
+  border-radius: 0.5rem;
+  padding: 0;
+  background: white;
+  height: 100%;
+  width: 25%;
+  font-weight: 900;
+  color: hsl(214, 47%, 23%);
 }
 
-.card {
-  padding: 2em;
+.score {
+  font-size: 5rem;
+  font-weight: bolder;
+  position: relative;
+  bottom: 6.3rem;
 }
 
-.read-the-docs {
-  color: #888;
+.icon-container {
+  width: 30%;
+  min-width: 20rem;
+  height: 25rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg-tringle {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.border {
+  width: 13rem;
+  height: 13rem;
+  border-radius: 100%;
+  border: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.icon {
+  width: 10rem;
+  height: 10rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+
+.paper {
+  background-color: rgb(91, 91, 235);
+  position: absolute;
+  top: -3.5rem;
+  left: -3rem;
+}
+
+.rock {
+  background-color: rgb(237, 86, 86);
+  position: absolute;
+  bottom: -7rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.scissors {
+  background-color: rgb(240, 133, 56);
+  position: absolute;
+  top: -3.5rem;
+  right: -3rem;
+}
+
+.border:hover {
+  box-shadow: rgb(255, 255, 255) 0 0 3rem;
+}
+.border:focus {
+  background-color: rgb(17, 154, 17);
 }
