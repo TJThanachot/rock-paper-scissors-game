@@ -1,11 +1,14 @@
-import paper from "./assets/icon-paper.svg";
-import rock from "./assets/icon-rock.svg";
-import scissors from "./assets/icon-scissors.svg";
 import logo from "./assets/logo.svg";
-import bgTringle from "./assets/bg-triangle.svg";
+import Step1 from "./components/step1";
+import Step2 from "./components/Step2";
 import "./App.css";
+import { AiOutlineClose } from "react-icons/ai";
+// import { useState } from "react";
+import { useStore } from "./contexts/storeProvider";
 
 function App() {
+  const { rules, setRules, playAgain, setPlayAgain }: any = useStore();
+
   return (
     <div className="app">
       <header className="header">
@@ -15,24 +18,35 @@ function App() {
           <p className="score">12</p>
         </div>
       </header>
-      <div className="icon-container">
-        <img src={bgTringle} className="bg-tringle" alt="bg tringle" />
-
-        <button className="border paper">
-          <div className="icon">
-            <img src={paper} width={75} alt="paper" />
-          </div>
+      {playAgain === true ? <Step1 /> : <Step2 />}
+      {/* <Step1 /> */}
+      {/* <Step2 /> */}
+      <footer className="footer">
+        <button
+          className="rules-button"
+          onClick={() => {
+            setRules((prev: boolean): boolean => {
+              return (prev = !prev);
+            });
+          }}
+        >
+          RULES
         </button>
-        <button className="border rock">
-          <div className="icon">
-            <img src={rock} width={75} alt="rock" />
-          </div>
-        </button>
-        <button className="border scissors">
-          <div className="icon">
-            <img src={scissors} width={75} alt="scissors" />
-          </div>
-        </button>
+      </footer>
+      <div className={`rules ${rules === true ? "show-rules" : null}`}>
+        <div style={{ position: "relative", width: "23.5rem" }}>
+          <button
+            className="close"
+            onClick={() => {
+              setRules((prev: boolean): boolean => {
+                return (prev = !prev);
+              });
+            }}
+          >
+            <AiOutlineClose />
+          </button>
+          <img className="pop-up" src="./src/assets/rules.jpg" alt="" />
+        </div>
       </div>
     </div>
   );
