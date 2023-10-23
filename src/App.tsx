@@ -1,13 +1,12 @@
 import logo from "./assets/logo.svg";
-import Step1 from "./components/step1";
+import Step1 from "./components/Step1";
 import Step2 from "./components/Step2";
 import "./App.css";
 import { AiOutlineClose } from "react-icons/ai";
-// import { useState } from "react";
 import { useStore } from "./contexts/storeProvider";
 
 function App() {
-  const { rules, setRules, playAgain, setPlayAgain }: any = useStore();
+  const { rules, setRules, playAgain, score }: any = useStore();
 
   return (
     <div className="app">
@@ -15,12 +14,10 @@ function App() {
         <img src={logo} alt="logo" />
         <div className="score-container">
           <p>SCORE</p>
-          <p className="score">12</p>
+          <p className="score">{`${score}`}</p>
         </div>
       </header>
       {playAgain === true ? <Step1 /> : <Step2 />}
-      {/* <Step1 /> */}
-      {/* <Step2 /> */}
       <footer className="footer">
         <button
           className="rules-button"
