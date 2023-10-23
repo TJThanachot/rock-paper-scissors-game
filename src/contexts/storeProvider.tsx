@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
-const storeContext = React.createContext();
-function StoreProvider(props) {
+const storeContext: any = React.createContext(undefined);
+function StoreProvider(props: any) {
   const [rules, setRules] = useState(false);
   const [playAgain, setPlayAgain] = useState(true);
+  const [classIcon, setClassIcon] = useState(["paper", "rock", "scissors"]);
+  const [winnerAndLoser, setWinnerAndLoser] = useState({});
+  const [score, setScore] = useState(0);
 
   return (
     <storeContext.Provider
@@ -12,6 +15,12 @@ function StoreProvider(props) {
         setRules,
         playAgain,
         setPlayAgain,
+        setClassIcon,
+        winnerAndLoser,
+        setWinnerAndLoser,
+        classIcon,
+        score,
+        setScore,
       }}
     >
       {props.children}

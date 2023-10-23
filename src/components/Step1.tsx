@@ -1,12 +1,13 @@
-import React from "react";
 import paper from "../assets/icon-paper.svg";
 import rock from "../assets/icon-rock.svg";
 import scissors from "../assets/icon-scissors.svg";
 import bgTringle from "../assets/bg-triangle.svg";
 import { useStore } from "../contexts/storeProvider";
+import useHook from "../hooks/useHook";
 
 function Step1() {
-  const { setPlayAgain } = useStore();
+  const { houseRandom, judge } = useHook();
+  const { setPlayAgain }: any = useStore();
   const buttonIcon = [paper, rock, scissors];
 
   return (
@@ -14,7 +15,7 @@ function Step1() {
       <img src={bgTringle} className="bg-tringle" alt="bg tringle" />
 
       {buttonIcon.map((item, index) => {
-        let classIcon;
+        let classIcon: string;
         switch (index) {
           case 0:
             classIcon = "paper";
@@ -31,6 +32,8 @@ function Step1() {
             className={`border ${classIcon}`}
             onClick={() => {
               setPlayAgain(false);
+              const result = houseRandom();
+              judge(classIcon, result);
             }}
           >
             <div className="icon">
