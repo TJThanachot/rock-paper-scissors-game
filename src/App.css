@@ -1,8 +1,7 @@
 #root {
   width: 100vw;
-  height: 100vh;
+  height: 100vh auto;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   font-family: "Barlow Semi Condensed", sans-serif;
   box-sizing: border-box;
@@ -16,7 +15,7 @@ body {
   min-height: 100vh;
 }
 .app {
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +23,7 @@ body {
 }
 
 .header {
+  margin-top: 3rem;
   border: 2px rgba(255, 255, 255, 0.4) solid;
   border-radius: 1rem;
   width: 50%;
@@ -41,7 +41,6 @@ body {
 
 .score-container {
   border-radius: 0.5rem;
-  padding: 0;
   background: white;
   height: 100%;
   width: 25%;
@@ -111,9 +110,105 @@ body {
   right: -3rem;
 }
 
-.border:hover {
+.border:hover,
+.border2:hover {
   box-shadow: rgb(255, 255, 255) 0 0 3rem;
 }
 .border:focus {
   background-color: rgb(17, 154, 17);
+}
+
+.footer {
+  margin-top: -5rem;
+  margin-right: 3rem;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: end;
+}
+.rules-button {
+  height: 2rem;
+  width: 6rem;
+  border: 2px rgba(255, 255, 255, 0.4) solid;
+  border-radius: 0.5rem;
+  background-color: inherit;
+  cursor: pointer;
+}
+.rules {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  padding-top: 15%;
+}
+.show-rules {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pop-up {
+  border-radius: 1rem;
+}
+
+.close {
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  color: red;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* step2------------------------------------------------- */
+
+.icon-container2 {
+  color: white;
+  width: 60%;
+  min-width: 20rem;
+  height: 25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box2 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.border2 {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 100%;
+  border: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.paper2 {
+  background-color: rgb(91, 91, 235);
+}
+
+.rock2 {
+  background-color: rgb(237, 86, 86);
+}
+.scissors2 {
+  background-color: rgb(240, 133, 56);
+}
+.play-again {
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: white;
+  height: 3rem;
+  width: 10rem;
+  font-weight: 900;
+  color: hsl(214, 47%, 23%);
+}
+.play-again:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
